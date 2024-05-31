@@ -1,6 +1,7 @@
 ## 1.2.0
 
-* This package helps to manage the navigate between screens in an elegant and easy way.
+* add namespace for android.
+* upgrade dependencies.
 
 ## 1.1.0
 
