@@ -12,8 +12,12 @@ class NavigatorName {
   }
 
   /// Navigate to another screens
-  static to(BuildContext context, String routeName,
-      {dynamic arguments, Function(Result result)? result}) {
+  static to(
+    BuildContext context,
+    String routeName, {
+    dynamic arguments,
+    Function(Result result)? result,
+  }) {
     Navigator.pushNamed(context, routeName, arguments: arguments).then((res) {
       if (res != null) {
         result!(res as Result);
@@ -28,11 +32,17 @@ class NavigatorName {
 
   /// Navigate screens and until screen remove
   static toFinishUntil(
-      BuildContext context, String routeName, String untilRouteName,
-      {dynamic arguments}) {
+    BuildContext context,
+    String routeName,
+    String untilRouteName, {
+    dynamic arguments,
+  }) {
     Navigator.pushNamedAndRemoveUntil(
-        context, routeName, ModalRoute.withName(untilRouteName),
-        arguments: arguments);
+      context,
+      routeName,
+      ModalRoute.withName(untilRouteName),
+      arguments: arguments,
+    );
   }
 
   /// Finish or Remove or Close or Back screen
@@ -44,12 +54,13 @@ class NavigatorName {
 /// [Navigate] provide functionality for check data
 class Navigate {
   /// check data from page (if onFailure null then page finish)
-  static extrasData(
-      {required BuildContext context,
-      required Map? data,
-      required Function(Map data) onSuccess,
-      Function? onFailure,
-      List<String> keys = const <String>[]}) {
+  static extrasData({
+    required BuildContext context,
+    required Map? data,
+    required Function(Map data) onSuccess,
+    Function? onFailure,
+    List<String> keys = const <String>[],
+  }) {
     if (data != null) {
       bool isAllKeyContains = true;
       for (String key in keys) {

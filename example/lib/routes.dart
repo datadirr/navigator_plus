@@ -9,7 +9,7 @@ class Routes {
   static Map<String, WidgetBuilder> routes(BuildContext context) {
     return {
       firstScreen: (context) => const FirstScreen(),
-      secondScreen: (context) => const SecondScreen()
+      secondScreen: (context) => const SecondScreen(),
     };
   }
 }

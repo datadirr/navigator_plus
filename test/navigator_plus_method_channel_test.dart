@@ -3,19 +3,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:navigator_plus/navigator_plus_method_channel.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   MethodChannelNavigatorPlus platform = MethodChannelNavigatorPlus();
   const MethodChannel channel = MethodChannel('navigator_plus');
 
-  TestWidgetsFlutterBinding.ensureInitialized();
-
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        return '42';
-      },
-    );
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+          return '42';
+        });
   });
 
   tearDown(() {

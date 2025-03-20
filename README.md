@@ -44,4 +44,3 @@ Fetch data from screen
 ```dart
 NavigatorName.getArguments(context);
 ```
-
