@@ -7,12 +7,12 @@ class NavigatorName {
   NavigatorName._();
 
   /// get passed data from screen
-  static getArguments(BuildContext context) {
+  static dynamic getArguments(BuildContext context) {
     return ModalRoute.of(context)!.settings.arguments;
   }
 
   /// Navigate to another screens
-  static to(
+  static void to(
     BuildContext context,
     String routeName, {
     dynamic arguments,
@@ -26,12 +26,16 @@ class NavigatorName {
   }
 
   /// Navigate screen and remove current screen
-  static toFinish(BuildContext context, String routeName, {dynamic arguments}) {
+  static void toFinish(
+    BuildContext context,
+    String routeName, {
+    dynamic arguments,
+  }) {
     Navigator.pushReplacementNamed(context, routeName, arguments: arguments);
   }
 
   /// Navigate screens and until screen remove
-  static toFinishUntil(
+  static void toFinishUntil(
     BuildContext context,
     String routeName,
     String untilRouteName, {
@@ -46,7 +50,7 @@ class NavigatorName {
   }
 
   /// Finish or Remove or Close or Back screen
-  static finish(BuildContext context, {Object? result}) {
+  static void finish(BuildContext context, {Object? result}) {
     Navigator.pop(context, result);
   }
 }
@@ -54,7 +58,7 @@ class NavigatorName {
 /// [Navigate] provide functionality for check data
 class Navigate {
   /// check data from page (if onFailure null then page finish)
-  static extrasData({
+  static void extrasData({
     required BuildContext context,
     required Map? data,
     required Function(Map data) onSuccess,
